@@ -410,7 +410,7 @@ def get_abs_path_real_path_and_base_from_frame(frame):
             # files from eggs in Python 2.7 have paths like build/bdist.linux-x86_64/egg/<path-inside-egg>
             f = frame.f_globals['__file__']
         if f is not None:
-            if f.endswith('.pyc'):
+            if f.endswith('.pyc') or f.endswith('.pyo'):
                 f = f[:-1]
             elif f.endswith('$py.class'):
                 f = f[:-len('$py.class')] + '.py'
