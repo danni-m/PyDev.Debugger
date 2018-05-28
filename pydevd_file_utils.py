@@ -205,9 +205,8 @@ def exists(file):
     if os.path.exists(file):
         return file
 
-    if file.endswith('.pyc') or file.endswith('.pyo'):
-        if os.path.exists(file[:-1]):
-            return file
+    if file.endswith('.py') and os.path.exists(file + "o"):
+        return file + "o"
 
     ind = file.find('.zip')
     if ind == -1:
